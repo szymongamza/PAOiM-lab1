@@ -1,9 +1,9 @@
-import UI.Main_Menu;
+import UI.MainMenu;
 
 public class Main {
 
     public static void main(String[] args) {
-        Main_Menu menu = new Main_Menu();
-        menu.print_Main_Menu();
+        MainMenu menu = new MainMenu();
+        menu.printMainMenu();
     }
 }

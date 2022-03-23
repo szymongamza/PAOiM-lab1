@@ -3,7 +3,7 @@ package UI;
 import java.util.Scanner;
 
 public class Input {
-    static double InputDoubleHigherThanZero() {
+    static double inputDoubleHigherThanZero() {
         double a = 0;
 
         while (a <= 0) {
@@ -20,7 +20,7 @@ public class Input {
         return a;
     }
 
-    static int InputIntHigherThanZeroInRangeToC(int c) {
+    static int inputIntHigherThanZeroInRangeToC(int c) {
         int b = 0;
         while (b <= 0 || b > c) {
             try {
