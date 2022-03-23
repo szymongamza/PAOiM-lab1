@@ -2,7 +2,6 @@ package UI;
 
 import Figures.*;
 
-import java.util.Scanner;
 
 public class Main_Menu {
     public void print_Main_Menu() {
@@ -12,85 +11,49 @@ public class Main_Menu {
         System.out.println("3. Circle");
         System.out.println();
         Figure figure = null;
-        Scanner scanner = new Scanner(System.in);
-        int menu = scanner.nextInt();
+        int menu = Input.InputIntHigherThanZeroInRangeToC(3);
         switch (menu) {
-            case 1:
+            case 1 -> {
                 System.out.println("You picked 1. Triangle");
                 System.out.println("Input base of triangle:");
-                double base = -1;
-                while (base < 0) {
-                    base = scanner.nextDouble();
-                    if (base < 0) {
-                        System.out.println("Base cannot be <0");
-                    }
-                }
+                double base = Input.InputDoubleHigherThanZero();
                 System.out.println("Input height of triangle:");
-                double h = -1;
-                while (h < 0) {
-                    h = scanner.nextDouble();
-                    if (h < 0) {
-                        System.out.println("Height cannot be <0");
-                    }
-                }
+                double h = Input.InputDoubleHigherThanZero();
                 Triangle triangle = new Triangle(base, h);
                 figure = triangle;
                 System.out.println();
                 triangle.print();
-                break;
-
-            case 2:
+            }
+            case 2 -> {
                 System.out.println("You picked 2. Square");
                 System.out.println("Input side of square:");
-                double side = -1;
-                while (side < 0) {
-                    side = scanner.nextDouble();
-                    if (side < 0) {
-                        System.out.println("Side cannot be <0");
-                    }
-                }
+                double side = Input.InputDoubleHigherThanZero();
                 Square square = new Square(side);
                 figure = square;
                 System.out.println();
                 square.print();
-                break;
-            case 3:
+            }
+            case 3 -> {
                 System.out.println("You picked 3. Circle");
                 System.out.println("Input ray of circle:");
-                double r = -1;
-                while (r < 0) {
-                    r = scanner.nextDouble();
-                    if (r < 0) {
-                        System.out.println("Side cannot be <0");
-                    }
-                }
+                double r = Input.InputDoubleHigherThanZero();
                 Circle circle = new Circle(r);
                 figure = circle;
                 System.out.println();
                 circle.print();
-                break;
+            }
         }
         System.out.println();
         System.out.println("Do you want to build a prism?");
         System.out.println("1. Yes");
         System.out.println("2. No");
-        int selection = scanner.nextInt();
-        switch (selection) {
-            case 1:
-                System.out.println("Input height of prism:");
-                double height = -1;
-                while (height < 0) {
-                    height = scanner.nextDouble();
-                    if (height < 0) {
-                        System.out.println("Side cannot be <0");
-                    }
-                }
-                Prism prism = new Prism(figure, height);
-                System.out.println();
-                prism.print();
-                break;
-            case 2:
-                break;
+        int selection = Input.InputIntHigherThanZeroInRangeToC(2);
+        if (selection == 1) {
+            System.out.println("Input height of prism:");
+            double height = Input.InputDoubleHigherThanZero();
+            Prism prism = new Prism(figure, height);
+            System.out.println();
+            prism.print();
         }
     }
 }
